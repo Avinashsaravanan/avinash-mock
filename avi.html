@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Wade</title>
+  <style>
+    /* Navbar styles */
+    .navbar {
+      background-color: #fff;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Navbar links */
+    .navbar a {
+      color: #000;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    /* Block letter style for "Wade" */
+    .navbar .wade-link {
+      display: inline-block;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    /* Enlarged "Get a Quote" link */
+    .get-quote-button {
+      position: relative;
+      background-color: blue;
+      color: #fff;
+      padding: 15px 25px;
+      border: none;
+      text-decoration: none;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    /* Button overlay */
+    .get-quote-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Button hover effect */
+    .get-quote-button:hover::before {
+      opacity: 1;
+    }
+
+    /* Welcome text styles */
+    .welcome-text-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .welcome-text {
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .additional-text {
+      text-align: center;
+      font-size: 16px;
+      color: #333;
+      margin-top: 10px;
+      max-width: 400px;
+      line-height: 1.5;
+    }
+
+    .get-started-button {
+      margin-top: 20px;
+      background-color: blue;
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .get-started-button:hover {
+      background-color: #005eff;
+    }
+
+    .background-image {
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 50px;
+      padding: 50px 0;
+    }
+
+    .image-text {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .businesses-list {
+      text-align: center;
+      margin-top: 10px;
+      line-height: 1.5;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+
+    .businesses-list p {
+      margin: 0 5px;
+    }
+
+    .background-image div {
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .images-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .images-container img {
+      width: 40%;
+      height: auto;
+      background-color: transparent; /* Remove background color */
+    }
+
+    .full-width-image {
+      width: 100%;
+      height: auto;
+      margin-top: 50px;
+    }
+
+    .workflow-text {
+      text-align: center;
+      font-size: 24px;
+      color: black;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    .workflow-text1{
+      text-align: center;
+    }
+
+    .left-image-container,
+    .right-image-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+    }
+
+    .left-image-container img,
+    .right-image-container img {
+      width: 100%;
+      height: auto;
+    }
+
+    .full-width-image1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: auto;
+    }
+
+    .left-side-image {
+      width: 100%;
+      height: auto;
+    }
+
+    .discussion {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: auto;
+      color: black;
+      padding: 20px;
+      background-color: #fff;
+    }
+
+    .discussion .left-side-image {
+      width: 100%;
+      height: auto;
+    }
+
+    .discussion .right-content {
+      width: 100%;
+      text-align: right;
+      padding-right: 40px;
+    }
+
+    .discussion h2 {
+      margin: 0;
+    }
+
+    .discussion p {
+      margin-top: 10px;
+      max-width: 400px;
+      line-height: 1.5;
+    }
+
+    form {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    input[type="email"] {
+      padding: 10px;
+      border: greenyellow;
+      border-radius: 5px 0 0 5px;
+      width: 250px;
+    }
+
+    button.subscribe-button {
+      padding: 10px 40px;
+      padding-left: 10px;
+      background-color: blue;
+      color: white;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+    }
+
+    .faq-section {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      font-size: 24px;
+     
+    }
+
+    .faq-section h3 {
+      margin-top: 0;
+    }
+    .faq-button {
+  color: blue;
+  
+}
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      border: 1px solid black;
+      padding: 10px;
+    }
+
+    .faq-question span {
+      margin-right: 10px;
+    }
+
+    .faq-question .contact-us {
+      text-decoration: underline;
+      color: rgb(64, 64, 192);
+    }
+    .dis2-content {
+  position: relative;
+}
+
+.dis2-image-container {
+  position: relative;
+}
+
+.darker-image {
+  filter: brightness(50%);
+}
+
+.dis2-form-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  
+  padding: 30px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.dis2-form-container form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.dis2-form-container form label {
+  margin-bottom: 5px;
+}
+
+.dis2-form-container form input,
+.dis2-form-container form textarea {
+  margin-bottom: 10px;
+}
+
+.dis2-form-container form button {
+  margin-top: 10px;
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.dis2-form-container h2 {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+
+   
+    .wade-info {
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+ 
+
+  .wade-info a {
+    color: blue;
+  }
+  .blog-layout {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  
+
+  .wade-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  
+
+.wade-info h3 {
+  margin-bottom: 50px;
+}
+  
+
+  
+  .blog-layout {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .blog-column {
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    margin-bottom: 80px;
+    margin-right: 150px;
+  }
+
+  
+  
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .footer-left {
+    flex: 1;
+  }
+
+  .footer-center {
+    flex: 1;
+    text-align: center;
+  }
+
+  .footer-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .footer span {
+    font-size: 14px;
+    color: #333;
+  }
+
+  .footer-right img {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+  }
+ 
+
+  
+
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="#wade" class="wade-link">Wade</a>
+    <div>
+      <a href="#whatwedo">What We Do</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#faq">FAQ</a>
+      <a href="#content">Content</a>
+    </div>
+    <a href="#getaquote" class="get-quote-button">Get a Quote</a>
+  </div>
+
+  <div class="welcome-text-container">
+    <div class="welcome-text">
+      <p>Welcome to Wade</p>
+    </div>
+    <div class="additional-text">
+      <p>Occaecati doloribus et laborum magnam. Aut eaque enim quia vel soluta consequatur enim temporibus cumque com modius tempora est temporara est tempora odio.</p>
+    </div>
+    <button class="get-started-button">Get Started</button>
+  </div>
+
+  <div class="background-image">
+    <img src="avi1.jpg" alt="Background Image" style="width: 80%; height: auto;">
+    <p class="image-text">Trusted by the world's top businesses to build stronger teams</p>
+    <div class="businesses-list">
+      <p>airbnb</p>
+      <p>Kohl's</p>
+      <p>Google</p>
+      <p>Spotify</p>
+      <p>Dribbble</p>
+      <p>Skyscanner</p>
+    </div>
+    <p>Occaecati doloribus et laborum magnam. Aut eaque enim quia vel soluta consequatur enim temporibus</p>
+    <div class="images-container">
+      <img src="left image.jpg" alt="Left Image">
+      <img src="right  image.jpg" alt="Right Image">
+    </div>
+  </div>
+
+  <img src="full width.jpg" alt="Full Width Image" class="full-width-image">
+  <p class="workflow-text">Our Workflow</p>
+  <p class="workflow-text1"> doloribus et laborum magnam. Aut eaque enim quia vel soluta consequatur enim temporibus </p>
+  <div class="images-container">
+    <div class="left-image-container">
+      <img src="leftcontainerr.jpg" alt="Left Image">
+    </div>
+    <div class="right-image-container">
+      <img src="right containerr.jpg" alt="Right Image">
+    </div>
+  </div>
+
+  <div class="full-width-image1">
+    <img src="ceo image1.jpg" alt="ceo image" class="full-width-image1">
+  </div>
+
+  <div class="discussion">
+    <div class="left-side-image">
+      <img src="left dicussion image1.jpg" alt="Left Side Image">
+    </div>
+    <div class="right-content">
+      <h2>Ready to kick off your journey?</h2>
+      <p>Occaecati doloribus et laborum magnam. Aut eaque enim quia vel soluta consequatur enim temporibus cumque com modius tempora est temporara est tempora odio.</p>
+      
+      <form>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <button type="submit" class="subscribe-button">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  <div class="faq-section">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq-question">
+      <span>How do I open an account?</span>
+      <button class="faq-button">+</button>
+    </div>
+    <div class="faq-question">
+      <span>What's your refund and cancellation policy?</span>
+      <button class="faq-button">+</button>
+    </div>
+    <div class="faq-question">
+      <span>How can I subscribe?</span>
+      <button class="faq-button">+</button>
+    </div>
+    <div class="faq-question">
+      <span>What's your refund and cancellation policy?</span>
+      <button class="faq-button">+</button>
+    </div>
+    <div class="faq-question">
+      <span>How can I subscribe?</span>
+      <button class="faq-button">+</button>
+    </div>
+    <p class="contact-us">Still have any questions? <u class="contact-link">Contact us</u></p>
+  </div>
+  <div class="dis2">
+    <div class="dis2-content">
+      <div class="dis2-image-container">
+        <img src="exam discussion.jpg" alt="Image" style="width: 100%; height: auto;">
+        <div class="dis2-form-container">
+          <h2>Get in Touch</h2>
+          <form>
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" required>
+            
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit" class="submit-button">Submit message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    <div class="wade-info">
+      <h3>Wade cares about the team <br> members and their<br> product's growth</h3>
+      <a href="mailto:wade@info.com" style="color: blue; margin-bottom: 5px; align-items: center";>wade@info.com</a>
+    </div>
+      <div class="blog-layout">
+        <div class="blog-column">
+          <h2>Home</h2>
+          <span>Main Home</span>
+          
+          <span>Agency Light</span>
+          <span>Tech Store</span>
+          <span>Agency Dark</span>
+          <span>App Showcase</span>
+          <span>Business Expo</span>
+          <span>Consulting Home</span>
+          <span>Resume Home</span>
+          <span>Landing</span>
+        </div>
+      <div class="blog-column">
+        <h2>page</h2>
+        <span>about us</span>
+       <span>our services</span>
+        <span>coming soon</span>
+        <h2> shop</h2>
+        <span>product list</span>
+        <span>product single</span>
+        <span>cart</span>
+        
+      </div>
+      <div class="blog-column">
+        <h2> blog</h2>
+        <span>blog standard</span>
+        <span>blog masonry</span>
+          <span>standard post</span>
+          <span>gallery post</span>
+          <span>quote post</span>
+          <span>link post</span>
+          <span>video post</span>
+          <span>audio post</span>
+          <span>no sidebar post</span>
+        
+      </div>
+      <div class="blog-column">
+        <h2> port folio</h2>
+        <span>big images</span>
+        <span>small images</span>
+          <span>big slider</span>
+          <span>small slider</span>
+          <span>big gallery</span>
+          <span>small gallery</span>
+          </div>
+          <div class="footer">
+            <div class="footer-left">
+              <h2>wade</h2>
+            </div>
+            <div class="footer-center">
+              <span>2022 Qode Interactive. All rights reserved.</span>
+            </div>
+            <div class="footer-right">
+              <a href="https://twitter.com"><img src="twitter logo.png" alt="Twitter Logo"></a>
+              <a href="https://facebook.com"><img src="facebook logo.webp" alt="Facebook Logo"></a>
+            </div>
+          </div>
+</body>
+</html>
